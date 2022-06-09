@@ -2,7 +2,7 @@ import fs from 'fs';
 import { ApolloServer, gql } from 'apollo-server-lambda';
 
 // get the GraphQL schema
-const schema = fs.readFileSync('./src/schema.graphql', 'utf8')
+const typeDefs = fs.readFileSync('./src/schema.graphql', 'utf8')
 
 // resolver functions
 const resolvers = { 
@@ -15,7 +15,7 @@ const resolvers = {
   }
 };
 
-const server = new ApolloServer({ typeDefs: schema, resolvers })
+const server = new ApolloServer({ typeDefs, resolvers })
 
 // launch the server when the Lambda is called
 exports.handler = server.createHandler();
