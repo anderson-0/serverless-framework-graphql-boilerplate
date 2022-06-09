@@ -1,0 +1,21 @@
+service: serverless-graphql-boilerplate # service name
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws # deploy to AWS
+  runtime: nodejs14.x
+  versionFunctions: false # disable function versioning
+  region: us-east-1 # AWS region
+  apiGateway:
+    shouldStartNameWithService: true
+
+functions:
+  graphql:
+    handler: build/graphql.handler # Lambda handler path
+    events:
+      - http:
+          path: graphql # define Lambda endpoint
+          method: any # any HTTP method can access this Lambda
+          cors: true # enable CORS

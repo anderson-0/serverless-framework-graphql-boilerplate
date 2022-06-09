@@ -1,0 +1,23 @@
+{
+  "name": "serverless-framework-graphql-boilerplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/anderson-0/serverless-framework-graphql-boilerplate.git",
+  "author": "Anderson da Silva <anderson.consultant.it@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && sls offline",
+    "deploy": "npm run build && serverless deploy"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2",
+    "serverless-offline": "^8.8.0",
+    "typescript": "^4.7.3"
+  }
+}
