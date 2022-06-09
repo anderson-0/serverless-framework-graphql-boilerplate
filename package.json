@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc",
     "start": "npm run build && sls offline",
-    "deploy": "npm run build && serverless deploy"
+    "deploy": "npm run build && serverless deploy",
+    "debug": "set SLS_DEBUG=* && node --inspect node_modules/serverless/bin/serverless offline --httpPort 3031 -s stage --aws-profile=aws_trifin"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.27.1",
@@ -19,5 +20,8 @@
     "prettier": "^2.6.2",
     "serverless-offline": "^8.8.0",
     "typescript": "^4.7.3"
+  },
+  "dependencies": {
+    "serverless": "^3.19.0"
   }
 }
