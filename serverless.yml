@@ -7,9 +7,33 @@ provider:
   name: aws # deploy to AWS
   runtime: nodejs14.x
   versionFunctions: false # disable function versioning
-  region: us-east-1 # AWS region
+
   apiGateway:
     shouldStartNameWithService: true
+  environment:
+    ITEM_TABLE: ${self:service}-items-${sls:stage} # ${sls:stage} is a shortcut to ${opt:stage, self:provider.stage, "dev"}
+  iamRoleStatements:
+    - Effect: Allow # allow the Lambda to Get and Put Items of this table
+      Action:
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+      Resource: "arn:aws:dynamodb:${aws:region}:*:table/${self:provider.environment.ITEM_TABLE}" # ${aws:region} is a shortcut to ${opt:region, self:provider.region, "us-east-1"}
+
+resources:
+  Resources:
+    ItemsTable: # define the table
+      Type: "AWS::DynamoDB::Table"
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: itemId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: itemId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.ITEM_TABLE}
 
 functions:
   graphql:
