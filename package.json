@@ -6,12 +6,11 @@
   "author": "Anderson da Silva <anderson.consultant.it@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "codegen": "graphql-codegen",
-    "schema-type": "graphql-codegen --config codegen.yml",
+    "codegen": "graphql-codegen --config codegen.yml",
     "build": "npm run codegen && tsc",
     "start": "npm run build && sls offline",
     "deploy": "npm run build && serverless deploy",
-    "debug": "set SLS_DEBUG=* && node --inspect node_modules/serverless/bin/serverless offline --httpPort 3031 -s stage --aws-profile=aws_trifin"
+    "debug": "set SLS_DEBUG=* && node --inspect node_modules/serverless/bin/serverless offline -s dev"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.6.2",
