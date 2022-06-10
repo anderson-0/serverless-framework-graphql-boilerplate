@@ -1,20 +1,9 @@
 import fs from 'fs';
 import { ApolloServer } from 'apollo-server-lambda';
-import item from './graphql/resolvers/queries/item';
+import resolvers from './graphql/resolvers';
 
 // get the GraphQL schema
 const typeDefs = fs.readFileSync('./src/graphql/schemas/schema.graphql', 'utf8')
-
-// resolver functions
-const resolvers = { 
-  Query: {
-    item
-  },
-
-  Mutation: {
-    createItem: () => {},
-  }
-};
 
 const server = new ApolloServer({ typeDefs, resolvers })
 
