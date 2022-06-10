@@ -2,7 +2,7 @@ import fs from 'fs';
 import { ApolloServer, gql } from 'apollo-server-lambda';
 
 // get the GraphQL schema
-const typeDefs = fs.readFileSync('./src/schema.graphql', 'utf8')
+const typeDefs = fs.readFileSync('./src/graphql/schema/schema.graphql', 'utf8')
 
 // resolver functions
 const resolvers = { 

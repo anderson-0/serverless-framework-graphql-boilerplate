@@ -3,10 +3,14 @@ type Query {
 }
 
 type Mutation {
-  createItem(content: String!): Item
+  createItem(input: CreateItemInput!): Item
 }
 
 type Item {
   id: ID!
   content: String
+}
+
+input CreateItemInput {
+  content: String!
 }
