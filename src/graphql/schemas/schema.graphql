@@ -5,6 +5,7 @@ type Query {
 
 type Mutation {
   createItem(input: CreateItemInput!): Item
+  updateItem(input: UpdateItemInput!): Item
 }
 
 type Item {
@@ -13,5 +14,10 @@ type Item {
 }
 
 input CreateItemInput {
+  content: String!
+}
+
+input UpdateItemInput {
+  id: ID!
   content: String!
 }
