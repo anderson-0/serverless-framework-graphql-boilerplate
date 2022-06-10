@@ -3,6 +3,8 @@ service: serverless-graphql-boilerplate # service name
 plugins:
   - serverless-offline
 
+useDotenv: true
+
 provider:
   name: aws # deploy to AWS
   runtime: nodejs14.x
