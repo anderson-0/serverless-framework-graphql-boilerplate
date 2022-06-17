@@ -19,6 +19,7 @@ provider:
       Action:
         - dynamodb:GetItem
         - dynamodb:PutItem
+        - dynamodb:Scan
       Resource: "arn:aws:dynamodb:${aws:region}:*:table/${self:provider.environment.ITEM_TABLE}" # ${aws:region} is a shortcut to ${opt:region, self:provider.region, "us-east-1"}
 
 resources:
