@@ -44,5 +44,5 @@ functions:
     events:
       - http:
           path: graphql # define Lambda endpoint
-          method: any # any HTTP method can access this Lambda
+          method: POST # any HTTP method can access this Lambda
           cors: true # enable CORS

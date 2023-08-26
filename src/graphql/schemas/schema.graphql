@@ -6,6 +6,7 @@ type Query {
 type Mutation {
   createItem(input: CreateItemInput!): Item
   updateItem(input: UpdateItemInput!): Item
+  sendBooleanValues(input: SendBooleanValuesInput!): Boolean
 }
 
 type Item {
@@ -20,4 +21,9 @@ input CreateItemInput {
 input UpdateItemInput {
   id: ID!
   content: String!
+}
+
+input SendBooleanValuesInput {
+  NutritionFacts: Boolean
+  SportsFacts: Boolean
 }

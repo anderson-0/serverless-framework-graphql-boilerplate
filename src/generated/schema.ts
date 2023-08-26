@@ -25,12 +25,18 @@ export type Item = {
 export type Mutation = {
   __typename?: 'Mutation';
   createItem?: Maybe<Item>;
+  sendBooleanValues?: Maybe<Scalars['Boolean']>;
   updateItem?: Maybe<Item>;
 };
 
 
 export type MutationCreateItemArgs = {
   input: CreateItemInput;
+};
+
+
+export type MutationSendBooleanValuesArgs = {
+  input: SendBooleanValuesInput;
 };
 
 
@@ -47,6 +53,11 @@ export type Query = {
 
 export type QueryItemArgs = {
   id: Scalars['ID'];
+};
+
+export type SendBooleanValuesInput = {
+  NutritionFacts?: InputMaybe<Scalars['Boolean']>;
+  SportsFacts?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type UpdateItemInput = {
